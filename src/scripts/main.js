@@ -3,7 +3,7 @@
 const body = document.body;
 
 function waitFor(element, eventName) {
-  if (!element && !eventName) {
+  if (!element || !eventName) {
     return;
   }
 
@@ -12,7 +12,7 @@ function waitFor(element, eventName) {
       element.removeEventListener(eventName, clickHandler);
 
       resolve(
-        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}`,
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
       );
     };
 
