@@ -4,7 +4,7 @@ const body = document.body;
 
 function waitFor(element, eventName) {
   if (!element || !eventName) {
-    return;
+    return Promise.reject(new Error('missing args'));
   }
 
   return new Promise((resolve) => {
@@ -46,3 +46,5 @@ waitFor(passwordField, 'input').then(printMessage);
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
 waitFor(button, 'blur').then(printMessage);
+
+export { waitFor, printMessage };
